@@ -1,9 +1,7 @@
 from gluon import current
 
 class TagDao:
-    db = current.db
-
     @staticmethod
     def getAllTags():
-        db = TagDao.db;
+        db = current.db;
         return db().select(db.tag.ALL);

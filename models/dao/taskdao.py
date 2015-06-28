@@ -1,9 +1,7 @@
 from gluon import current
 
 class TaskDao:
-    db = current.db
-
     @staticmethod
     def getAllTasks():
-        db = TaskDao.db;
+        db = current.db;
         return db().select(db.task.ALL);

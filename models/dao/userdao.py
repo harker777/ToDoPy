@@ -1,13 +1,12 @@
 from gluon import current
 
 class UserDao:
-    db = current.db
-
     @staticmethod
     def getAllUsers():
-        db = UserDao.db;
+        db = current.db;
         return db().select(db.user.ALL);
 
+    @staticmethod
     def getUsersProjects(id):
-        db = UserDao.db;
-        return db(db.task.project_id=id).select(db.task.ALL);
+        db = current.db;
+        return db(db.project.user_id==id).select(db.project.ALL);
