@@ -1,4 +1,7 @@
-db = DAL('mysql://root:1111@localhost:3306/todo', migrate_enabled = False)
+from gluon import current
+
+db = DAL('mysql://root:root@localhost:3306/todo', migrate_enabled = False)
+current.db = db;
 
 db.define_table('user',
                 Field('id', 'integer'),
