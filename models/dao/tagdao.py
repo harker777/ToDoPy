@@ -6,4 +6,4 @@ class TagDao:
     @staticmethod
     def getAllTags():
         db = TagDao.db;
-        return db(db.tag.id > 0).select(db.tag.ALL);
+        return db().select(db.tag.ALL);

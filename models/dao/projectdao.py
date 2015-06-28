@@ -6,4 +6,4 @@ class ProjectDao:
     @staticmethod
     def getAllProjects():
         db = ProjectDao.db;
-        return db(db.project.id > 0).select(db.project.ALL);
+        return db().select(db.project.ALL);

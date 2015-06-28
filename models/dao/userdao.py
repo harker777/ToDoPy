@@ -6,4 +6,8 @@ class UserDao:
     @staticmethod
     def getAllUsers():
         db = UserDao.db;
-        return db(db.user.id > 0).select(db.user.ALL);
+        return db().select(db.user.ALL);
+
+    def getUsersProjects(id):
+        db = UserDao.db;
+        return db(db.task.project_id=id).select(db.task.ALL);

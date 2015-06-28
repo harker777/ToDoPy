@@ -6,4 +6,4 @@ class TaskDao:
     @staticmethod
     def getAllTasks():
         db = TaskDao.db;
-        return db(db.task.id > 0).select(db.task.ALL);
+        return db().select(db.task.ALL);
