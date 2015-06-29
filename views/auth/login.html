@@ -1,1 +1,14 @@
-{{=(1,2,3)}}
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<form method="post">
+    email: <input type="email" name="email" /> </br>
+    password: <input type="password" name="password" /> </br>
+    <input type="submit" /> </br>
+</form>
+
+<script>
+    $('form').submit(function(event) {
+        console.log(event);
+//        event.preventDefault();
+    });
+</script>

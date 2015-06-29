@@ -1,5 +1,14 @@
+import applications.todo.models.util.auth as auth
+
 def login():
-    return dict()
+    method = request.env.request_method;
+    if (method == 'GET'):
+        return dict();
+    if (method == 'POST'):
+        email = request.post_vars.email
+        password = request.post_vars.password
+        auth.tryToLogin(email, password)
+        return dict();
 
 def register():
     return dict()
