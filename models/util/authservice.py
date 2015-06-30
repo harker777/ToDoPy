@@ -8,7 +8,7 @@ def checkIfAuthorized():
         userId = current.request.cookies['userid'].value
         userName = current.request.cookies['username'].value
         current.userName = userName
-        current.userId = 1
+        current.userId = userId
         return userId
     else:
         http.redirect(html.URL('auth', 'login'))

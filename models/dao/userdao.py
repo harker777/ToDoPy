@@ -9,7 +9,7 @@ class UserDao:
     @staticmethod
     def getProjectsForUser(userId):
         db = current.db
-        return db(db.project.user_id == userId).select(db.project.ALL)
+        return db(db.project.user_id == userId).select()
 
     @staticmethod
     def authorizeByEmail(email, password):
