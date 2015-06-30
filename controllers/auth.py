@@ -1,5 +1,3 @@
-import applications.todo.models.util.auth as auth
-
 def login():
     method = request.env.request_method;
     if (method == 'GET'):
@@ -7,7 +5,7 @@ def login():
     if (method == 'POST'):
         email = request.post_vars.email
         password = request.post_vars.password
-        auth.tryToLogin(email, password)
+        authservice.tryToLogin(email, password)
         return dict();
 
 def register():
