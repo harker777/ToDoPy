@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+<title>ToDo2Py</title>
+</head>
+<body>
+	<div class="content-wrapper">
+		{{if current.userId > 0:}}
+			<h1> Hello, {{=current.userName}} </h1>
+			<a href="{{=URL('auth', 'logout')}}"> LogOut </a>
+		{{else:}}
+		{{pass}}
+
+		{{include}}
+	</div>
+</body>

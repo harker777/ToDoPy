@@ -17,4 +17,4 @@ class UserDao:
         query = (db.user.mail == email) & (db.user.password == password)
         rows = db(query).select()
         if (len(rows.as_list()) > 0):
-            return rows[0].id
+            return rows[0]

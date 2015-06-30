@@ -4,4 +4,4 @@ import applications.todo.models.util.authservice as authservice
 isAuthPage = (current.request.controller == 'auth')
 
 if (not(isAuthPage)):
-	current.userId = authservice.checkIfAuthorized()
+	authservice.checkIfAuthorized()

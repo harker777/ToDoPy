@@ -1,5 +1,5 @@
 def login():
-    method = request.env.request_method;
+    method = request.env.request_method
     if (method == 'GET'):
         return dict();
     if (method == 'POST'):
@@ -9,12 +9,17 @@ def login():
         return dict();
 
 def register():
-    return dict()
+    method = request.env.request_method
+    if (method == 'GET'):
+        return dict();
+    if (method == 'POST'):
+        name = request.post_vars.name
+        login = request.post_vars.login
+        password = request.post_vars.password
+        email = request.post_vars.email
+        id = db.user.insert(name = name, login = login, password = password, mail = email)
+        redirect(URL('auth', 'login'))
 
-def apply():
-    name = request.post_vars.name
-    login = request.post_vars.login
-    password = request.post_vars.password
-    email = request.post_vars.email
-    id = db.user.insert(name = name, login = login, password = password, mail = email)
-    return dict(id = id)
+def logout():
+    authservice.logout()
+    redirect(URL('auth', 'login'))
