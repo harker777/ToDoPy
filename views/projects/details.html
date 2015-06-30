@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+
+{{for task in tasks:}}
+	<li>{{=task.id}}.
+		<a href={{=URL('tasks','details', args=task.id)}}> {{=task.name}} </a>
+	</li>
+{{pass}}

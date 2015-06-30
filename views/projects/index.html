@@ -1,3 +1,9 @@
 {{extend 'layout.html'}}
 
-{{=projects}}
+<ul>
+{{for project in projects:}}
+	<li>{{=project.id}}.
+		<a href={{=URL('projects','details', args=project.id)}}> {{=project.name}} </a>
+	</li>
+{{pass}}
+</ul>
