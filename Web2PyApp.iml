@@ -9,6 +9,17 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/models" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/controllers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/modules" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/models/util" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/models/dao" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/views" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/static" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/private" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/databases" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/errors" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/languages" type="java-resource" />
     </content>
     <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
