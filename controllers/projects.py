@@ -9,9 +9,16 @@ def index():
 def details():
 	projectId = request.args[0]
 	tasks = TaskDao.getTasksForProject(projectId)
-	return dict(tasks = tasks)
+	return dict(tasks = tasks, projectId = projectId)
 
 def create():
 	name = request.post_vars.name
 	db.project.insert(name = name, user_id = current.userId)
 	redirect(URL('projects', ' '))
+
+def addtask():
+	projectId = request.post_vars.projectId
+	name = request.post_vars.name
+	db.task.insert(name = name, project_id = projectId)
+	redirect(URL('projects', 'details', args = [projectId]))
+	return dict()
