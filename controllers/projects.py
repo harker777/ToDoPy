@@ -10,3 +10,8 @@ def details():
 	projectId = request.args[0]
 	tasks = TaskDao.getTasksForProject(projectId)
 	return dict(tasks = tasks)
+
+def create():
+	name = request.post_vars.name
+	db.project.insert(name = name, user_id = current.userId)
+	redirect(URL('projects', ' '))

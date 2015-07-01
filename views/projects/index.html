@@ -1,9 +1,13 @@
 {{extend 'layout.html'}}
 
 <ul>
-{{for project in projects:}}
-	<li>{{=project.id}}.
-		<a href={{=URL('projects','details', args=project.id)}}> {{=project.name}} </a>
-	</li>
-{{pass}}
+    {{for project in projects:}}
+        <li>{{=project.id}}.
+            <a href={{=URL('projects','details', args=project.id)}}> {{=project.name}} </a>
+        </li>
+    {{pass}}
+    <form method="post" action="create">
+        name: <input type="text" name="name" /> </br>
+        <input type="submit" value="Add project" /> </br>
+    </form>
 </ul>
