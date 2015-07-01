@@ -15,7 +15,7 @@
 		{{if hasattr(current, 'userId'):}}
 			<h1> Hello, {{=current.userName}} </h1>
 			<form action="{{=URL('auth', 'logout')}}">
-			    <button class="btn btn-default" type="submit">Log Out</button>
+			    <button class="btn btn-default logout" type="submit">Log Out</button>
 			</form>
 		{{else:}}
 		{{pass}}

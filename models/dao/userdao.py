@@ -18,3 +18,23 @@ class UserDao:
         rows = db(query).select()
         if (len(rows.as_list()) > 0):
             return rows[0]
+
+    @staticmethod
+    def userWithEmailExists(email):
+        db = current.db
+        query = (db.user.mail == email)
+        rows = db(query).select()
+        if (len(rows.as_list()) > 0):
+            return True
+        else:
+            return False
+
+    @staticmethod
+    def userWithLoginExists(login):
+        db = current.db
+        query = (db.user.login == login)
+        rows = db(query).select()
+        if (len(rows.as_list()) > 0):
+            return True
+        else:
+            return False

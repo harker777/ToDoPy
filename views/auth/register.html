@@ -1,7 +1,39 @@
-<form enctype="multipart/form-data" method="post">
-    email: <input type="email" name="email" /> </br>
-    name: <input type="text" name="name" /> </br>
-    login: <input type="text" name="login" /> </br>
-    password: <input type="password" name="password" /> </br>
-    <input type="submit" /> </br>
+{{extend 'layout.html'}}
+
+<form method="post" class="register-form">
+	<h3> Please enter following details: </h3>
+	<div id="email">
+	    <input type="email" name="email" class="form-control input-lg top" placeholder="Email address" required autofocus/>
+	</div>
+	<div id="name">
+	    <input type="text" name="name" class="form-control input-lg medium" placeholder="Name" required />
+	</div>
+	<div id="login">
+	    <input type="text" name="login" class="form-control input-lg medium" placeholder="Login" required />
+	</div>
+	<div id="password">
+	    <input type="text" name="password" class="form-control input-lg bottom" placeholder="Password" required />
+	</div>
+    <button class="btn btn-lg btn-primary btn-block" type="button">Register!</button>
 </form>
+
+<script>
+	$(".register-form button").on("click", function(e) {
+		$.ajax({
+    		type: "POST",
+    		url: "{{=URL('auth', 'register.json')}}",
+			data: $('.register-form').serialize(),
+        	success: function(msg) {
+        		if (msg.success) {
+        			window.location.href = "{{=URL('auth', 'login')}}";
+        		} else {
+        			$(".register-form div").removeClass("has-error");
+        			for (var i = 0; i < msg.errorFields.length; i++) {
+        				field = msg.errorFields[i]
+        				$(".register-form #" + field).addClass("has-error");
+        			}
+        		}
+ 		    }
+ 		});
+	});
+</script>

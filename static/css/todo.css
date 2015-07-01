@@ -1,5 +1,5 @@
 body {
-	background-color: #eee;
+	background-color: #f2f2f2;
 }
 
 body div.content-wrapper {
@@ -12,7 +12,7 @@ body div.content-wrapper img {
 	margin: 0px auto;
 }
 
-form.login-form {
+form.login-form, form.register-form {
 	margin: 5px auto;
 	padding: 5px;
 	max-width: 350px;
@@ -30,8 +30,17 @@ input.top {
 }
 
 input.bottom {
-	margin-top: -1px;
 	margin-bottom: 10px;
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
+}
+
+input.medium {
+	border-radius: 0px;
+}
+
+
+button.logout {
+	margin-top: -45px;
+	float: right;s
 }
