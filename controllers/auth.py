@@ -5,8 +5,8 @@ def login():
     if (method == 'POST'):
         email = request.post_vars.email
         password = request.post_vars.password
-        authservice.tryToLogin(email, password)
-        return dict();
+        result = authservice.tryToLogin(email, password)
+        return dict(success = result);
 
 def register():
     method = request.env.request_method

@@ -15,16 +15,16 @@ def checkIfAuthorized():
 
 def tryToLogin(email, password):
     user = UserDao.authorizeByEmail(email, password)
-    if (user.id > 0):
+    if (hasattr(user, 'id')):
         current.response.cookies['userid'] = user.id
         current.response.cookies['userid']['path'] = '/'
         current.response.cookies['userid']['expires'] = 3600
         current.response.cookies['username'] = user.name
         current.response.cookies['username']['path'] = '/'
         current.response.cookies['username']['expires'] = 3600
-        http.redirect(html.URL('projects', ' '))
+        return True
     else:
-        http.redirect(html.URL('auth', 'login'))
+        return False
 
 def logout():
     current.response.cookies['userid'] = ""

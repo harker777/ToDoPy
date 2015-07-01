@@ -1,8 +1,30 @@
 {{extend 'layout.html'}}
 
 <form method="post" class="login-form">
-	<h2> Sign into your account </h2>
-    <input type="email" name="email" class="form-control input-lg top" placeholder="Your email address" required autofocus/>
-    <input type="password" name="password" class="form-control input-lg bottom" placeholder="Password" required autofocus/>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	<h2> Please, sign in </h2>
+	<div class="inputcontainer">
+	    <input type="email" name="email" class="form-control input-lg top" placeholder="Your email address" required autofocus/>
+	</div>
+	<div class="inputcontainer">
+	    <input type="password" name="password" class="form-control input-lg bottom" placeholder="Password" required autofocus/>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="button">Sign in</button>
 </form>
+
+<script>
+	$(".login-form button").on("click", function(e) {
+		$.ajax({
+    		type: "POST",
+    		url: "{{=URL('auth', 'login.json')}}",
+			data: $('.login-form').serialize(),
+        	success: function(msg) {
+        		if (msg.success) {
+        			window.location.href = "{{=URL('projects', ' ')}}";
+        		} else {
+        			$(".login-form .inputcontainer").addClass("has-error");
+        			$(".login-form input[type='password']").val("");
+        		}
+ 		    }
+ 		});
+	});
+</script>

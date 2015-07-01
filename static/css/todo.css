@@ -18,6 +18,10 @@ form.login-form {
 	max-width: 350px;
 }
 
+form.login-form h2{
+	text-align: center;
+}
+
 input.top {
 	margin-bottom: -1px;
 	margin-top: 10px;
