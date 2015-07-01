@@ -12,9 +12,9 @@ class UserDao:
         return db(db.project.user_id == userId).select()
 
     @staticmethod
-    def authorizeByEmail(email, password):
+    def authorizeByEmailOrLogin(email, password):
         db = current.db
-        query = (db.user.mail == email) & (db.user.password == password)
+        query = ((db.user.mail == email) & (db.user.password == password)) | ((db.user.login == email) & (db.user.password == password))
         rows = db(query).select()
         if (len(rows.as_list()) > 0):
             return rows[0]

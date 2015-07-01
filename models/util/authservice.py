@@ -14,7 +14,7 @@ def checkIfAuthorized():
         http.redirect(html.URL('auth', 'login'))
 
 def tryToLogin(email, password):
-    user = UserDao.authorizeByEmail(email, password)
+    user = UserDao.authorizeByEmailOrLogin(email, password)
     if (hasattr(user, 'id')):
         current.response.cookies['userid'] = user.id
         current.response.cookies['userid']['path'] = '/'
