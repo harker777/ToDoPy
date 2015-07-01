@@ -6,7 +6,9 @@
             <a href={{=URL('projects','details', args = project.id)}}> {{=project.name}} </a>
             <form action="{{=URL('projects','delete')}}" method="post">
                 <input type="hidden" name="projectId" value="{{=project.id}}">
-                <input type="submit" value="X" />
+                <button class="btn btn-default btn-sm" type="submit">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true" />
+                </button>
             </form>
         </li>
     {{pass}}

@@ -1,0 +1,33 @@
+body {
+	background-color: #eee;
+}
+
+body div.content-wrapper {
+	margin: 0px auto;
+	margin-top: 20px;
+	width: 600px;
+}
+
+body div.content-wrapper img {
+	margin: 0px auto;
+}
+
+form.login-form {
+	margin: 5px auto;
+	padding: 5px;
+	max-width: 350px;
+}
+
+input.top {
+	margin-bottom: -1px;
+	margin-top: 10px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+input.bottom {
+	margin-top: -1px;
+	margin-bottom: 10px;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+}

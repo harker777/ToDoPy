@@ -1,14 +1,8 @@
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+{{extend 'layout.html'}}
 
-<form method="post">
-    email: <input type="email" name="email" /> </br>
-    password: <input type="password" name="password" /> </br>
-    <input type="submit" /> </br>
+<form method="post" class="login-form">
+	<h2> Sign into your account </h2>
+    <input type="email" name="email" class="form-control input-lg top" placeholder="Your email address" required autofocus/>
+    <input type="password" name="password" class="form-control input-lg bottom" placeholder="Password" required autofocus/>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>
-
-<script>
-    $('form').submit(function(event) {
-        console.log(event);
-//        event.preventDefault();
-    });
-</script>

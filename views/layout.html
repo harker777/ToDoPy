@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <head>
 <title>ToDo2Py</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{=URL('static', 'css/todo.css')}}" type="text/css" />
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="content-wrapper">
-		{{if current.userId > 0:}}
+		<a href="{{=URL('projects', ' ')}}">
+			<img src="http://images.cooltext.com/4311631.png" />
+		</a>
+
+		{{if hasattr(current, 'userId'):}}
 			<h1> Hello, {{=current.userName}} </h1>
 			<a href="{{=URL('auth', 'logout')}}"> LogOut </a>
 		{{else:}}
