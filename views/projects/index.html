@@ -3,7 +3,11 @@
 <ul>
     {{for project in projects:}}
         <li>{{=project.id}}.
-            <a href={{=URL('projects','details', args=project.id)}}> {{=project.name}} </a>
+            <a href={{=URL('projects','details', args = project.id)}}> {{=project.name}} </a>
+            <form action="{{=URL('projects','delete')}}" method="post">
+                <input type="hidden" name="projectId" value="{{=project.id}}">
+                <input type="submit" value="X" />
+            </form>
         </li>
     {{pass}}
 </ul>

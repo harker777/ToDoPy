@@ -1,10 +1,18 @@
 {{extend 'layout.html'}}
 
+<br />
+<a href="{{=URL('projects', ' ')}}">Projects</a>
+
 <ul>
     {{for task in tasks:}}
         <li>{{=task.id}}.
             <a href={{=URL('tasks','details', args=task.id)}}> {{=task.name}} </a>
         </li>
+        <form method="post" action="{{=URL('projects', 'deletetask')}}">
+            <input type="hidden" name="projectId" value="{{=projectId}}" />
+            <input type="hidden" name="taskId" value="{{=task.id}}" />
+            <input type="submit" value="X" />
+        </form>
     {{pass}}
 </ul>
 

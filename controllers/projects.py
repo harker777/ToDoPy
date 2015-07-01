@@ -21,4 +21,16 @@ def addtask():
 	name = request.post_vars.name
 	db.task.insert(name = name, project_id = projectId)
 	redirect(URL('projects', 'details', args = [projectId]))
-	return dict()
+
+def delete():
+	projectId = request.post_vars.projectId
+	projects = db(db.project.id == projectId)
+	projects.delete()
+	redirect(URL('projects', ' '))
+
+def deletetask():
+	projectId = request.post_vars.projectId
+	taskId = request.post_vars.taskId
+	tasks = db(db.task.id == taskId)
+	tasks.delete()
+	redirect(URL('projects', 'details', args = [projectId]))
