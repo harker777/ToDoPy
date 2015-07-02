@@ -1,21 +1,32 @@
 {{extend 'layout.html'}}
 
 <h3> Your projects: </h3>
-<ul>
-    {{for project in projects:}}
-        <li>{{=project.id}}.
-            <a href={{=URL('projects','details', args = project.id)}}> {{=project.name}} </a>
-            <form action="{{=URL('projects','delete')}}" method="post">
-                <input type="hidden" name="projectId" value="{{=project.id}}">
-                <button class="btn btn-default btn-sm" type="submit">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true" />
-                </button>
-            </form>
-        </li>
-    {{pass}}
-</ul>
 
+{{i = 1}}
+{{for project in projects:}}
+    <div class="well well-sm well-project">
+        <h3>
+            {{=i}}.
+            <div class="project-color" style="background-color: #{{=project.color}}"> </div>
+            <a href={{=URL('projects','details', args = project.id)}}> {{=project.name}} </a>
+            {{i = i + 1}}
+        </h3>
+        <form action="{{=URL('projects','delete')}}" method="post">
+            <input type="hidden" name="projectId" value="{{=project.id}}">
+            <button class="btn btn-default btn-sm" type="submit">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true" />
+            </button>
+        </form>
+    </div>
+{{pass}}
+</br>
+
+<h3> Add new Project: </h3>
 <form method="post" action="create">
-    name: <input type="text" name="name" /> </br>
-    <input type="submit" value="Add project" /> </br>
+    <div class="input-group input-group-lg">
+        <input type="text" class="form-control" placeholder="Title" name="name"/>
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Add!</button>
+        </span>
+    </div>
 </form>

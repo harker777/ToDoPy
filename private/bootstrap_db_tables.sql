@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `color` int(11) NOT NULL,
+  `color` varchar(6) NOT NULL,
   `parent_id` int(11),
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),

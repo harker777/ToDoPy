@@ -39,8 +39,23 @@ input.medium {
 	border-radius: 0px;
 }
 
-
 button.logout {
 	margin-top: -45px;
 	float: right;s
+}
+
+.well-project h3 {
+	display: inline;
+}
+
+.well-project form {
+	display: inline;
+	float: right;
+}
+
+div.project-color {
+	width: 18px;
+	height: 18px;
+	border-radius: 3px;
+	display: inline-block;
 }

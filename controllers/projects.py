@@ -13,7 +13,7 @@ def details():
 
 def create():
 	name = request.post_vars.name
-	db.project.insert(name = name, user_id = current.userId)
+	db.project.insert(name = name, user_id = current.userId, color = "ffffff")
 	redirect(URL('projects', ' '))
 
 def addtask():

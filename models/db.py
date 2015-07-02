@@ -13,7 +13,7 @@ db.define_table('user',
 db.define_table('project',
                 Field('id', 'integer'),
                 Field('name','string'),
-		Field('color', 'integer'),
+		Field('color', 'string'),
 		Field('parent_id', 'integer'),
 		Field('user_id', 'integer'))
 

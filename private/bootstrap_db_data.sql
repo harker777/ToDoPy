@@ -9,10 +9,10 @@ DELETE FROM `project`;
 INSERT INTO `project`
   (`name`, `color`, `parent_id`, `user_id`)
 VALUES
-  ('home', 1, null, 1),
-  ('work', 2, null, 1),
-  ('home', 1, null, 2),
-  ('work', 2, null, 2);
+  ('home', 'aa0000', null, 1),
+  ('work', 'aaaa00', null, 1),
+  ('home', '00aa00', null, 2),
+  ('work', '0000aa', null, 2);
 
 DELETE FROM `tag`;
 INSERT INTO `tag`
