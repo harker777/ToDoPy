@@ -27,7 +27,7 @@ db.define_table('task',
                 Field('name','string'),
 		Field('project_id', 'integer'),
 		Field('time', 'date'),
-		Field('deadline', 'date'),
+		Field('deadline', 'datetime'),
 		Field('priority', 'integer'),
 		Field('status', 'integer'),
 		Field('parent', 'integer'))

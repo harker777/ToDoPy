@@ -10,3 +10,8 @@ class TaskDao:
     def getTasksForProject(projectId):
         db = current.db
         return db(db.task.project_id == projectId).select(db.task.ALL)
+
+    @staticmethod
+    def getTaskById(id):
+        db = current.db
+        return db(db.task.id == id).select(db.task.ALL).first()

@@ -42,7 +42,7 @@ CREATE TABLE `task` (
   `name` varchar(50) NOT NULL,
   `project_id` int(11) NOT NULL,
   `time` date,
-  `deadline` date,
+  `deadline` datetime,
   `priority` int(1) NOT NULL,
   `status` int(1) NOT NULL,
   `parent` int(11) NOT NULL,
