@@ -1,25 +1,69 @@
 {{extend 'layout.html'}}
 
-<br />
-<a href="{{=URL('projects', ' ')}}">Projects</a>
-
-<ul>
-    {{for task in tasks:}}
-        <li>{{=task.id}}.
-            <a href={{=URL('tasks','details', args=task.id)}}> {{=task.name}} </a>
-        </li>
-        <form id="login" method="post" action="{{=URL('projects', 'deletetask')}}">
-            <input type="hidden" name="projectId" value="{{=projectId}}" />
-            <input type="hidden" name="taskId" value="{{=task.id}}" />
-            <button class="btn btn-default btn-sm" type="submit">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true" />
-            </button>
-        </form>
-    {{pass}}
-</ul>
-
-<form method="post" action="{{=URL('projects', 'addtask')}}">
-    name: <input type="text" name="name" /> </br>
-    <input type="hidden" name="projectId" value="{{=projectId}}">
-    <input type="submit" value="Add task" /> </br>
+<form action="{{=URL('projects', ' ')}}">
+    <button type="submit" class="btn btn-default">
+        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+        <h4>Projects </h4>
+    </button>
 </form>
+
+</br>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>{{=project.name}}</h2>
+        <div class="input-group color-picker">
+            <input id="color" type="text" value="{{=project.color}}" class="form-control" />
+            <span class="input-group-addon">
+                <i></i>
+            </span>
+            <span class="input-group-btn">
+                <button id="save-color" class="btn btn-default" type="button"> Save </button>
+            </span>
+        </div>
+    </div>
+    <ul class="list-group">
+        {{i = 1}}
+        {{for task in tasks:}}
+            <li class="list-group-item">
+                <h3> 
+                    {{=i}}.
+                    {{i = i + 1}}
+                    <a href={{=URL('tasks','details', args=task.id)}}> {{=task.name}} </a>
+                </h3>
+                <form id="login" method="post" action="{{=URL('projects', 'deletetask')}}">
+                    <input type="hidden" name="projectId" value="{{=project.id}}" />
+                    <input type="hidden" name="taskId" value="{{=task.id}}" />
+                    <button class="btn btn-default btn-sm" type="submit">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true" />
+                    </button>
+                </form>
+            </li>
+        {{pass}}
+    </ul>
+</div>
+
+<h3> Add new Task: </h3>
+<form method="post" action="{{=URL('projects', 'addtask')}}">
+    <div class="input-group input-group-lg">
+        <input type="text" class="form-control" placeholder="Title" name="name"/>
+        <input type="hidden" name="projectId" value="{{=project.id}}">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Add!</button>
+        </span>
+    </div>
+</form>
+
+<script>
+    $(function(){
+        $('.color-picker').colorpicker();
+        $('button#save-color').on('click', function(e) {
+            color = $('#color').val().substring(1);
+            console.log(color);
+            $.ajax({
+                type: "POST",
+                url: "{{=URL('projects', 'setcolor.json')}}",
+                data: "projectId={{=project.id}}&color=" + color
+            });
+        });
+    });
+</script>

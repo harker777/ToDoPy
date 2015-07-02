@@ -1,5 +1,6 @@
 from applications.todo.models.dao.userdao import UserDao
 from applications.todo.models.dao.taskdao import TaskDao
+from applications.todo.models.dao.projectdao import ProjectDao
 from gluon import current
 
 def index():
@@ -9,7 +10,8 @@ def index():
 def details():
 	projectId = request.args[0]
 	tasks = TaskDao.getTasksForProject(projectId)
-	return dict(tasks = tasks, projectId = projectId)
+	project = ProjectDao.getProjectById(projectId)
+	return dict(tasks = tasks, project = project)
 
 def create():
 	name = request.post_vars.name
@@ -34,3 +36,10 @@ def deletetask():
 	tasks = db(db.task.id == taskId)
 	tasks.delete()
 	redirect(URL('projects', 'details', args = [projectId]))
+
+def setcolor():
+	projectId = request.post_vars.projectId
+	color = request.post_vars.color
+	project = ProjectDao.getProjectById(projectId)
+	project.update_record(color = color)
+	return dict()	

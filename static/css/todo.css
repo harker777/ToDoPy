@@ -59,3 +59,24 @@ div.project-color {
 	border-radius: 3px;
 	display: inline-block;
 }
+
+form h4 {
+	display: inline;
+}
+
+.list-group-item h3 {
+	display: inline;
+}
+
+.list-group-item form {
+	float: right;
+}
+
+.panel-heading h2 {
+	display: inline;
+}
+
+.colorpicker-element {
+	width: 200px;
+	float: right;
+}
